@@ -37,7 +37,7 @@ jobs:
     # Publish dev image to container registry
     - name: Build and push atlantis:dev image
       if: ${{ github.event_name == 'push'}}
-      uses: docker/build-push-action@v2
+      uses: docker/build-push-action@v4
       with:
         context: .
         platforms: linux/arm64/v8,linux/amd64,linux/arm/v7
@@ -51,7 +51,7 @@ jobs:
       run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
     - name: Build and push atlantis:${{ env.RELEASE_VERSION }} image
       if: ${{ github.event_name == 'release'}}
-      uses: docker/build-push-action@v2
+      uses: docker/build-push-action@v4
       with:
         context: .
         platforms: linux/arm64/v8,linux/amd64,linux/arm/v7
