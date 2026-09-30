@@ -9,7 +9,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: golangci-lint
-      uses: reviewdog/action-golangci-lint@v2
+      uses: reviewdog/action-golangci-lint@db65103266f304d8ac929ad6c0cd02d14f6837ba # v2
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         tool_name: golangci-lint
@@ -22,7 +22,7 @@ jobs:
       - name: Check out code into the Go module directory
         uses: actions/checkout@v1
       - name: revive
-        uses: reviewdog/action-golangci-lint@v2
+        uses: reviewdog/action-golangci-lint@db65103266f304d8ac929ad6c0cd02d14f6837ba # v2
         with:
           golangci_lint_flags: "--disable-all -E revive"
           tool_name: revive # Change reporter name.
@@ -36,7 +36,7 @@ jobs:
       - name: Check out code into the Go module directory
         uses: actions/checkout@v1
       - name: errcheck
-        uses: reviewdog/action-golangci-lint@v2
+        uses: reviewdog/action-golangci-lint@db65103266f304d8ac929ad6c0cd02d14f6837ba # v2
         with:
           golangci_lint_flags: "--disable-all -E errcheck"
           tool_name: errcheck
